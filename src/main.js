@@ -6,9 +6,9 @@ import App from './App.vue'
 import { offlineSecret, onlineSecret } from './secrets';
 
 //switch for whehter online or offline database
-const online = false
+const online = true
 
-const secret = online ? onlineSecret : offlineSecret 
+const secret = online ? process.env.onlineSecret : offlineSecret 
 
 var faunadb = require('faunadb'),
   q = faunadb.query
