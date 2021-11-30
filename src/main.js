@@ -4,9 +4,15 @@ import { ApolloClient, createHttpLink, InMemoryCache, } from '@apollo/client'
 import { setContext } from '@apollo/client/link/context';
 import App from './App.vue'
 
+
+const onlineSecret = process.env.onlineSecret
+const nodeVersion = process.env.NODE_VERSION
 //switch for whehter online or offline database
 const online = true
 console.log(process.env.onlineSecret)
+console.log(onlineSecret)
+console.log(process.env.NODE_VERSION)
+console.log(nodeVersion)
 const secret = online ? process.env.onlineSecret : process.env.offlineSecret
 
 var faunadb = require('faunadb'),
