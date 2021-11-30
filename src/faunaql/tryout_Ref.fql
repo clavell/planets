@@ -1,0 +1,12 @@
+// Get(Ref(Ref("functions")),"GetSpaceship")
+
+// Get( Ref(Ref("functions"), "GetSpaceship"))
+
+// Get(Ref(Ref("functions")),"GetSpaceship")
+
+// Get(Function("GetSpaceship"))
+// Get(Ref("functions"), "GetSpaceship")
+
+Paginate(Documents(Collection('ShipLogs')))
+
+// Ref("collections")

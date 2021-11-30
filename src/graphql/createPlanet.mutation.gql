@@ -1,0 +1,8 @@
+mutation CreateAPlanet ($planet: PlanetInput!){
+   createPlanet( data: $planet) {
+       _id
+       name
+    	 type
+    	 color
+   }
+}

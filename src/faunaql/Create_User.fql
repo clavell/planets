@@ -1,0 +1,11 @@
+Create(
+  Collection('SpaceUsers'),
+  {
+    data:{
+      email:"darth@empire.com",
+    },
+    credentials:{
+      password:"iamyourfather"
+    }
+  }
+)

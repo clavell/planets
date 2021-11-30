@@ -1,0 +1,18 @@
+CreateFunction({
+  name:"CreateLogEntry",
+  body: Query(
+    Lambda(
+      ['shipRef','planetRef','status'],
+      Create(
+        Collection("ShipLogs"),
+        {
+          data:{
+            shipRef:Var('shipRef'),
+            planetRef:Var('planetRef'),
+            status:Var('status')
+          }
+        }
+      )
+    )
+  )
+})

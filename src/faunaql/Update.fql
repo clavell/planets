@@ -1,0 +1,21 @@
+Update(Ref(Collection("Spaceships"), "316443571709280768"),{
+    data: {
+      "type": "Rocket",
+    "fuelType": "Plasma",
+    "actualFuelTons": 20,
+    "maxFuelTons": 25,
+    "maxCargoTons": 25,
+    "maxPassengers": 5,
+    "maxRangeLightyears": 10,
+    "celestialPosition": {
+      "x": 1234,
+      "y": 3253,
+      "z": 9705
+    },
+    "code": "ENTERPRISE_E",
+    "colors": [
+      "GREY",
+      "BLUE"
+    ]
+    }
+  })

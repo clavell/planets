@@ -1,0 +1,19 @@
+CreateFunction({
+  name: 'OpenWormHoleAndWarp',
+  body:Query(
+    Lambda(
+      'shipRef',
+      Update(
+        Var('shipRef'),
+        Let({
+          shipDoc: Get(Var('shipRef')),
+          actualFuelTons: Select(['data','actualFuelTons'], Var('shipDoc'))
+        },{
+          data:{
+            actualFuelTons:Subtract(Var('actualFuelTons'), 5)
+          }
+        })
+      )
+    )
+  )
+})

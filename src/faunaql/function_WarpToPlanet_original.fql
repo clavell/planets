@@ -1,0 +1,28 @@
+CreateFunction({
+  name:'WarpToPlanet',
+  body:Query(
+    Lambda(['shipRef','planetRef'],
+      If(
+        Call(Function("HasEnoughFuelToWarp"), Var('shipRef')),
+        Do(
+          Call(Function('OpenWormHoleAndWarp'), Var('shipRef')),
+          Call(
+            Function("CreateLogEntry"),
+            [Var('shipRef'), Var('planetRef'),'WARPED TO PLANET']
+          ),
+          Let(
+            {
+              planetDoc: Get(Var('planetRef')),
+              planetName: Select(['data','name'], Var('planetDoc')),
+              shipName: Select(['data','name'], Get(Var('shipRef')))
+            },
+            
+            Concat([Var('shipName'), " has arrived at ", Var('planetName')])
+            
+          )
+        ),
+        Abort('Not EnoughFuel!')
+      )
+    )
+  )
+})

@@ -1,0 +1,8 @@
+CreateIndex({
+  name:"SpaceUsers_by_email",
+  source: Collection("SpaceUsers"),
+  terms:[
+    {field: ['data', 'email']}
+  ],
+  unique:true
+})

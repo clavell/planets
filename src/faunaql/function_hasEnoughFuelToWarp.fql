@@ -1,0 +1,14 @@
+CreateFunction({
+  name:"HasEnoughFuelToWarp",
+  body:Query(
+    Lambda('shipId',
+      Let(
+        {
+        shipDoc: Get(Var('shipId')),
+        actualFuelTons: Select(['data','actualFuelTons'], Var('shipDoc'))
+        },
+        GTE(Var('actualFuelTons'),5)
+      )
+    )
+  )
+})

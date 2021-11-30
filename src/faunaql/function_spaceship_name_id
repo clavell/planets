@@ -1,0 +1,16 @@
+CreateFunction({
+  name: "GetSpaceship",
+  body: Query(
+    Lambda("shipId",
+      Let(
+        {
+          shipDoc: Get(Ref(Collection("Spaceships"), Var("shipId")))
+        },
+        {
+          id:Select(["ref","id"], Var("shipDoc")),
+          name: Select(["data","name"], Var("shipDoc"))
+        }
+      )
+    )
+  )
+})

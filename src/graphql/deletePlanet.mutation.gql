@@ -1,0 +1,5 @@
+mutation DeleteAPlanet ($_id:ID!) {
+  deletePlanet (id: $_id){
+    _id
+  }
+}

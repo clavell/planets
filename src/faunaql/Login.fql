@@ -1,0 +1,5 @@
+Login(
+  Match(Index("SpaceUsers_by_email"), "darth@empire.com"),
+  {password:'iamyourfather',
+  ttl: TimeAdd(Now(), 5, 'hour')}
+)

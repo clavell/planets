@@ -1,0 +1,10 @@
+ query allPlanets{
+        allPlanets{
+          data {
+            _id
+            name
+            type
+            color
+          }
+        }
+      }

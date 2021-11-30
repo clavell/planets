@@ -1,0 +1,8 @@
+mutation EditPlanet($id:ID!, $planetData:PlanetInput!){
+  updatePlanet(id: $id, data: $planetData){
+    _id
+    name
+    color
+    type
+  }
+}

@@ -1,0 +1,7 @@
+Call(
+  Function('WarpToPlanet'),
+  [
+    Ref(Collection('Spaceships'), "316473288806105600"),
+    Ref(Collection('Planet'), "316385963558306304"),  
+  ]
+)

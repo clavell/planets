@@ -1,0 +1,5 @@
+
+Map(
+  Paginate(Documents(Collection("Spaceships"))),
+  Lambda('ref', Get(Var('ref')))
+)
