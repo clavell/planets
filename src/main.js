@@ -155,13 +155,13 @@ const falconID = "316473370558333440"
 // ).then((res) => {console.log(res)})
 
 //NEW THOUGHT FOR QUERY
-client.query(
-  Map(
-    Paginate(Match(Index('planetsByType'), 'GAS')),
-    Lambda('ref', Get(Var('ref')))
+// client.query(
+//   Map(
+//     Paginate(Match(Index('planetsByType'), 'GAS')),
+//     Lambda('ref', Get(Var('ref')))
 
-  )
-).then((res) => {console.log(res)})
+//   )
+// ).then((res) => {console.log(res)})
 
 
 
