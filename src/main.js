@@ -3,12 +3,11 @@ import { DefaultApolloClient } from '@vue/apollo-composable';
 import { ApolloClient, createHttpLink, InMemoryCache, } from '@apollo/client'
 import { setContext } from '@apollo/client/link/context';
 import App from './App.vue'
-import { offlineSecret, onlineSecret } from './secrets';
 
 //switch for whehter online or offline database
 const online = true
 
-const secret = online ? process.env.onlineSecret : offlineSecret 
+const secret = online ? process.env.onlineSecret : process.env.offlineSecret
 
 var faunadb = require('faunadb'),
   q = faunadb.query
