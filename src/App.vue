@@ -25,6 +25,7 @@
         <button type="submit">{{planetButtonText}}!</button>
 
       </form>
+      <button @click="func">func me</button>
   <ul>
     <li v-for="planet in planets" :key="planet.name">
       <h2>
@@ -105,7 +106,12 @@ export default {
       color.value = planet.color
     }
 
-    return {planets, deletePlanet, planetname, handleSubmit, type, color, editPlanet, planetButtonText}
+    const func = async function() {
+      const response = await fetch('/.netlify/functions/hello-world')
+      response.json()
+    }
+
+    return {planets, deletePlanet, planetname, handleSubmit, type, color, editPlanet, planetButtonText, func}
   }
 }
 </script>
