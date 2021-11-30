@@ -6,7 +6,7 @@ import App from './App.vue'
 
 //switch for whehter online or offline database
 const online = true
-
+console.log(process.env.onlineSecret)
 const secret = online ? process.env.onlineSecret : process.env.offlineSecret
 
 var faunadb = require('faunadb'),
