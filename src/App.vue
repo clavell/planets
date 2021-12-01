@@ -107,8 +107,8 @@ export default {
     }
 
     const func = async function() {
-      const response = await fetch('/.netlify/functions/hello-world')
-      console.log(response)
+      const response = await fetch('/.netlify/functions/get-planets')
+      console.log(response.text())
     }
 
     return {planets, deletePlanet, planetname, handleSubmit, type, color, editPlanet, planetButtonText, func}

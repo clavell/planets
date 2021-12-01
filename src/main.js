@@ -5,30 +5,7 @@ import { setContext } from '@apollo/client/link/context';
 import App from './App.vue'
 
 
-const onlineSecret = process.env.onlineSecret
-const nodeVersion = process.env.NODE_VERSION
-//switch for whehter online or offline database
-const online = true
-console.log(process.env.onlineSecret)
-console.log(onlineSecret)
-console.log(process.env.NODE_VERSION)
-console.log(nodeVersion)
 
-const secret = online ? process.env.onlineSecret : process.env.offlineSecret
-
-var faunadb = require('faunadb'),
-  q = faunadb.query
-
-  var client = new faunadb.Client({
-    secret,
-    domain: online ? 'db.fauna.com' : 'localhost',
-    // NOTE: Use the correct domain for your database's Region Group.
-    scheme: online ? 'https' : 'http',
-    port: online ? 443 : 8443
-  })
-
-
-const { Create, Collection, CreateCollection, Ref, Get, Update,Map, Documents, Paginate,Var,Lambda, Delete, Collections, CreateIndex, Index, Match, Indexes } = q
 
 const PicardId = "316441675078566400"
 const enterpriseId = "316443571709280768"
@@ -206,7 +183,18 @@ const falconID = "316473370558333440"
   // .catch((err) => console.error('Error: %s', err))
 //
 
+const login = async function() {
+  const response = await fetch('/.netlify/functions/log-in-darth')
+  console.log(response.text())
+}
 
+const secret = login().then((response) =>{
+
+  
+} )
+
+
+const online = false
 //HERE WE CREATE AN APOLLO CLIENT THAT WORKS
   const httpLink = createHttpLink({
     uri: online ? 'https://graphql.fauna.com/graphql' : 'http://localhost:8084/graphql',
