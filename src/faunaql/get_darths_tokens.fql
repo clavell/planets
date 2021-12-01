@@ -1,0 +1,4 @@
+Map(
+  Paginate(Tokens()),
+  Lambda('ref', Get(Var('ref')))
+)

@@ -1,0 +1,9 @@
+CreateRole({
+  name: "User",
+  membership: {
+    resource: Collection("SpaceUsers")
+  },
+  privileges: [
+    {resource: Collection("Planet"), actions: {read: true}}
+  ]
+})

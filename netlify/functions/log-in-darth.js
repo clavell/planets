@@ -27,11 +27,11 @@ var faunadb = require('faunadb'),
         ttl: TimeAdd(Now(), 1, 'hour')}
       )
     ).then((response) => {
-      console.log("success", response)
+      // console.log(response)
       /* Success! return the response with statusCode 200 */
       return  callback(null, {
         statusCode: 200,
-        body: JSON.stringify(response)
+        body: response.secret //just return the secret as a string
       })
     }).catch((error) => {
       console.log("error", error)

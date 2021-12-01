@@ -1,4 +1,6 @@
 import { createApp, provide, h } from 'vue'
+import router from './router'
+import store from './store'
 import { DefaultApolloClient } from '@vue/apollo-composable';
 import { ApolloClient, createHttpLink, InMemoryCache, } from '@apollo/client'
 import { setContext } from '@apollo/client/link/context';
@@ -183,33 +185,35 @@ const falconID = "316473370558333440"
   // .catch((err) => console.error('Error: %s', err))
 //
 
-const login = async function() {
-  const response = await fetch('/.netlify/functions/log-in-darth')
-  console.log(response.text())
-}
 
-const secret = login().then((response) =>{
+//AN ATTEMPT TO GET THE SECRET - FAILED since not async method
+// const login = async function() {
+//   const response = await fetch('/.netlify/functions/log-in-darth')
+//   console.log(response.text())
+// }
 
-  
-} )
+// const secret = login().then((response) => response )
+sessionStorage.token = null
 
-
-const online = false
+const online = store.state.online
 //HERE WE CREATE AN APOLLO CLIENT THAT WORKS
   const httpLink = createHttpLink({
     uri: online ? 'https://graphql.fauna.com/graphql' : 'http://localhost:8084/graphql',
   });
   
-  const authLink = setContext((_, { headers }) => {
+  const authLink = setContext ((_, { headers }) => {
     // get the authentication token from local storage if it exists
     // const token = localStorage.getItem('token');
     // const token = 'fnAEYqm3KmACQaJXMvNR-5GykOqml1g-mnS6FCdN' //online secret
-    // const token = 'fnAEYqiyOZACAHeAJMih8z46VBNKnhVxA5QLvLia' //offline secret
+    const token = 'fnAEYqiyOZACAHeAJMih8z46VBNKnhVxA5QLvLia' //offline secret
+    // const token = sessionStorage.token
+    console.log(token)
+    console.log(sessionStorage)
     // return the headers to the context so httpLink can read them
     return {
       headers: {
         ...headers,
-        authorization: `Bearer ${secret}`,
+        authorization: `Bearer ${token}`,
       }
     }
   });
@@ -292,4 +296,4 @@ createApp({
   },
 
   render: () => h(App),
-}).mount('#app')
+}).use(store).use(router).mount('#app')
