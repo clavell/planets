@@ -27,7 +27,7 @@
       </form>
       <button @click="func">func me</button>
   <ul>
-    <li v-for="planet in planets" :key="planet.name">
+    <li v-for="planet in vuexPlanets" :key="planet.name">
       <h2>
         {{ planet.name }}
         {{ planet.type }}
@@ -50,20 +50,25 @@ import createPlanetMutation from '@/graphql/createPlanet.mutation.gql'
 import editPlanetMutation from '@/graphql/editPlanet.mutation.gql'
 import { computed, ref } from 'vue'
 import { useRouter } from 'vue-router'
+import { useStore } from 'vuex'
 
 export default {
   name: 'Home',
   setup() {
     const router = useRouter()
-    
+    const store = useStore()
 
 
+    const vuexPlanets = computed(() => store.state.planets)
+
     
+    // const {result} = useQuery(allPlanetsQuery)
+    // const planets = useResult(result, null, data => data.allPlanets.data)
     
-    const {result} = useQuery(allPlanetsQuery)
-    const planets = useResult(result, null, data => data.allPlanets.data)
+    store.dispatch('getPlanets',{useQuery,useResult,allPlanetsQuery})
+
     const {mutate: deletePlanet} = useMutation(deletePlanetMutation,() => ({
- 
+      
       update: (cache, { data: { deletePlanet } }) => {
         const data = cache.readQuery({ query: allPlanetsQuery })
         const newData = data.allPlanets.data.filter(planet => planet._id != deletePlanet._id)
@@ -102,7 +107,7 @@ export default {
         console.log(edit.value)
         updatePlanet({id:edit.value, planetData:{name:planetname.value, type:type.value, color:color.value}})
       }else {
-        createPlanet({planet:{name:planetname.value, type:type.value, color:color.value}})
+        createPlanet({planet:{name:planetname.value, type:type.value, color:color.value, user: {connect: "316809775525397071"}}})//HARD CODED ID.DONT FORGET
       }
       edit.value = false
     }
@@ -126,7 +131,9 @@ export default {
     }
 
 
-    return {planets, deletePlanet, planetname, handleSubmit, type, color, editPlanet, planetButtonText, func}
+    return {
+      // planets, 
+    deletePlanet, planetname, handleSubmit, type, color, editPlanet, planetButtonText, func, vuexPlanets}
   }
 }
 </script>  

@@ -3,6 +3,16 @@ type User {
   role: UserRole!
 }
 
+type CarUser {
+  name: String!
+  cars: [Car!] @relation
+}
+
+type Car {
+  plate: String!
+  owner: CarUser!
+}
+
 enum UserRole {
   MANAGER
   EMPLOYEE

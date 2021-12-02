@@ -2,7 +2,25 @@ Update(
   Role("User"),
   {
     privileges: [
-      { resource: Collection("Planet"), actions: { read: true , create: true, delete: true } },
+      { resource: Collection("Planet"), 
+        actions: { 
+          read: Query(
+            Lambda(
+              'planetRef',
+              Let(
+                {
+                  planetDoc: Get(Var('planetRef')),
+                  userRef: Select(['data', 'user'], Var('planetDoc'))
+                },
+                Equals(
+                  CurrentIdentity(),
+                  Var('userRef')
+                )
+              )  
+            )
+          ),
+          create: true, 
+          delete: true } },
       { resource: Index("allPlanets"), actions: { read: true } },
       
 

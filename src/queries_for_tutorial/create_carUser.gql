@@ -1,0 +1,14 @@
+mutation {
+  createCarUser(data: {
+    name: "Jane"
+  }) {
+    _id
+    name
+    cars {
+      data {
+        plate
+      }
+    }
+  }
+}
+
