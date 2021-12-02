@@ -1,0 +1,10 @@
+mutation CreateEmployeeUser {
+  createUser(input: {
+    username: "peter.gibbons"
+    password: "abcdef"
+    role: EMPLOYEE
+  }) {
+    username
+    role
+  }
+}

@@ -1,0 +1,13 @@
+Update(Function("login_user"), {
+  "body": Query(
+    Lambda(["input"],
+      Select(
+        "secret",
+        Login(
+          Match(Index("unique_User_username"), Select("username", Var("input"))), 
+          { password: Select("password", Var("input")) }
+        )
+      )
+    )
+  )
+});

@@ -1,0 +1,9 @@
+mutation CreateConfidentialFile {
+  createFile(data: {
+    content: "This is a public file!"
+    confidential: false
+  }) {
+    content
+    confidential
+  }
+}

@@ -1,0 +1,34 @@
+type User {
+  username: String! @unique
+  role: UserRole!
+}
+
+enum UserRole {
+  MANAGER
+  EMPLOYEE
+}
+
+type File {
+  content: String!
+  confidential: Boolean!
+}
+
+input CreateUserInput {
+  username: String!
+  password: String!
+  role: UserRole!
+}
+
+input LoginUserInput {
+  username: String!
+  password: String!
+}
+
+type Query {
+  allFiles: [File!]!
+}
+
+type Mutation {
+  createUser(input: CreateUserInput): User! @resolver(name: "create_user")
+  loginUser(input: LoginUserInput): String! @resolver(name: "login_user")
+}

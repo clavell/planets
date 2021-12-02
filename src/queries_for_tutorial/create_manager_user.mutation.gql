@@ -1,0 +1,10 @@
+mutation CreateManagerUser {
+  createUser(input: {
+    username: "bill.lumbergh"
+    password: "123456"
+    role: MANAGER
+  }) {
+    username
+    role
+  }
+}

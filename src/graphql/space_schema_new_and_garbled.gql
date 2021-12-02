@@ -1,0 +1,19 @@
+input CreatePlanetInput {
+   name: String!
+   color: String!
+   type: String!
+}
+
+type Planet {
+   name: String!
+   color: String!
+   type: String!
+   user: 
+}
+
+type Query {
+   allPlanets: [Planet!]
+   todosByColor(color: String!): [Planet!]
+   createPlanet(input: CreatePlanetInput!): Planet! @resolver (name:"create_planet")
+}
+

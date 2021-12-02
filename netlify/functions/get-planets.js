@@ -1,7 +1,7 @@
 var faunadb = require('faunadb'),
   q = faunadb.query
 
-  const online = false
+  const online = true
   const secret = online ? process.env.onlineSecret : process.env.offlineSecret
 
   var faunadb = require('faunadb'),

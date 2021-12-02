@@ -1,0 +1,15 @@
+Update(Function("create_user"), {
+  "body": Query(
+    Lambda(["input"],
+      Create(Collection("User"), {
+        data: {
+          username: Select("username", Var("input")),
+          role: Select("role", Var("input")),
+        },
+        credentials: {
+          password: Select("password", Var("input"))
+        }
+      })  
+    )
+  )
+});

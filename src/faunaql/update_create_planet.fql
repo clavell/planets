@@ -1,0 +1,18 @@
+Update(
+  Function("create_planet"), 
+  {
+    "body": Query(
+      Lambda(["input"],
+        Create(Collection("Planet"),{
+          data: {
+            name:Select("name", Var("input")),
+            type:Select("type", Var("input")),
+            color:Select("color", Var("input")),
+            user: CurrentIdentity()
+          }
+        })
+      )  
+    )
+  }
+  
+)
