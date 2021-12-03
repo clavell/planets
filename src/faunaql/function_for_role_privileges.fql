@@ -1,0 +1,18 @@
+CreateFunction({
+  name: 'limitAccessToOwnPlanets',
+  body: Query(
+    Lambda(
+      'planetRef',
+      Let(
+        {
+          planetDoc: Get(Var('planetRef')),
+          userRef: Select(['data', 'user'], Var('planetDoc'))
+        },
+        Equals(
+          CurrentIdentity(),
+          Var('userRef')
+        )
+      )  
+    )
+  )
+})

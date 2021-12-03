@@ -43,7 +43,9 @@
 
 <script>
 
-import { useMutation, useQuery, useResult } from '@vue/apollo-composable'
+import { useMutation, 
+// useQuery, useResult
+ } from '@vue/apollo-composable'
 import allPlanetsQuery from '@/graphql/allPlanets.query.gql' // you can call it whatever you want on import!
 import deletePlanetMutation from '@/graphql/deletePlanet.mutation.gql'
 import createPlanetMutation from '@/graphql/createPlanet.mutation.gql'
@@ -65,7 +67,7 @@ export default {
     // const {result} = useQuery(allPlanetsQuery)
     // const planets = useResult(result, null, data => data.allPlanets.data)
     
-    store.dispatch('getPlanets',{useQuery,useResult,allPlanetsQuery})
+    store.dispatch('getPlanets')
 
     const {mutate: deletePlanet} = useMutation(deletePlanetMutation,() => ({
       

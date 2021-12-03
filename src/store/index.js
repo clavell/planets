@@ -1,4 +1,9 @@
 import { createStore } from 'vuex'
+import { useQuery, useResult } from '@vue/apollo-composable'
+import allPlanetsQuery from '@/graphql/allPlanets.query.gql' // you can call it whatever you want on import!
+import deletePlanetMutation from '@/graphql/deletePlanet.mutation.gql'
+import createPlanetMutation from '@/graphql/createPlanet.mutation.gql'
+import editPlanetMutation from '@/graphql/editPlanet.mutation.gql'
 
 export default createStore({
   state: {
@@ -11,7 +16,7 @@ export default createStore({
     }
   },
   actions: {
-    getPlanets({state,commit},{useQuery, useResult, allPlanetsQuery}){
+    getPlanets({commit},){
       try{
         const {result} = useQuery(allPlanetsQuery)
         const planets = useResult(result, [], data => data.allPlanets.data)

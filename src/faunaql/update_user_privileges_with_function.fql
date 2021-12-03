@@ -1,0 +1,32 @@
+Update(
+  Role("User"),
+  {
+    privileges: [
+      { resource: Collection("Planet"), 
+        actions: { 
+          read: Query(
+            Lambda(
+              'planetRef',
+              Call(
+                Function('limitAccessToOwnPlanets'),
+                Var('planetRef')
+              )
+            )
+          ),
+          create: true, 
+          delete: Query(
+            Lambda(
+              'planetRef',
+              Call(
+                Function('limitAccessToOwnPlanets'),
+                Var('planetRef')
+              )
+            )
+          ), 
+          write: true,
+          } 
+        },
+      { resource: Index("allPlanets"), actions: { read: true } },
+    ]
+  }
+)

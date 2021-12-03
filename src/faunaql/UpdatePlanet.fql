@@ -1,0 +1,7 @@
+Update(Ref(Collection("Planet"), "316001862465618512"),{
+    data: {
+      name: 'Endor',
+      type: 'TERRESTRIAL',
+      color: 'GRREN'
+    }
+  })
