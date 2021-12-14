@@ -18,7 +18,7 @@ Upon logging in we see the planets he is already keeping track of:
 
 Let's add a planet
 
-<img width="1280" alt="Screen Shot 2021-12-13 at 5 13 17 PM" src="https://user-images.githubusercontent.com/12875280/145914882-7f518f0e-096c-4aac-8c5a-0611facf571a.png">
+
 <img width="1280" alt="Screen Shot 2021-12-13 at 5 13 17 PM" src="https://user-images.githubusercontent.com/12875280/145915201-85f50430-c68f-4c34-a270-523a6952daf2.png">
 
 Oops we mispelled Alderaan. If he finds out we're screwed! Let's edit it:
