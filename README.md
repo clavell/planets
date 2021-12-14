@@ -4,7 +4,9 @@
 This is a vue 3 project based on the tutorial by Natalia Tepluhina that was featured on Jason Lengstorf's learn with Jason: https://www.learnwithjason.dev/build-apps-with-vue-3-apollo-client-3
 (they used vue-apollo version 4 although it says version 3 in the title) 
 
-I modified their code to use FaunaDB (https://faunadb.com) for the database, using the FQL endpoint for authentication and the GraphQL enpoint for CRUD operations. The site is hosted on netlify and uses netlify functions for serverside authentication.
+I modified their code to use FaunaDB (https://faunadb.com) for the database, using the FQL endpoint for authentication and the GraphQL enpoint for CRUD operations (see the Home view https://github.com/clavell/planets/blob/main/src/views/Home.vue). The site is hosted on netlify and uses netlify functions for serverside authentication (see the functions code here: https://github.com/clavell/planets/tree/main/netlify/functions).
+
+Some dynamic vue routes were also employed to keep the Login view on screen until the login is completed. (see https://github.com/clavell/planets/edit/main/README.md)
 
 Here are some screenshots showing operation, but go to https://focused-volhard-5cc142.netlify.app to try it out!
 
