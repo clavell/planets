@@ -23,7 +23,9 @@ Let's add a planet
 
 Oops we mispelled Alderaan. If he finds out we're screwed! Let's edit it:
 
-<img width="1280" alt="Screen Shot 2021-12-13 at 5 19 31 PM" src="https://user-images.githubusercontent.com/12875280/145915217-f1a988ba-ff19-4427-8b78-d0b8effb73f5.png">
+<img width="1280" alt="Screen Shot 2021-12-13 at 5 20 10 PM" src="https://user-images.githubusercontent.com/12875280/145915641-6adc1d3b-1bb2-4a8e-940c-f185eeabad8f.png">
+
+Click change planet and:
 <img width="1280" alt="Screen Shot 2021-12-13 at 5 20 16 PM" src="https://user-images.githubusercontent.com/12875280/145915235-b01a8694-6b7e-4f25-9ad6-7b2ca49578c4.png">
 
 Okay fixed! What?? Alderaan's already been destroyed??? OK. Lets' remove it:
