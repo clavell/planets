@@ -203,9 +203,6 @@ const online = store.state.online
   
   const authLink = setContext ((_, { headers }) => {
     // get the authentication token from local storage if it exists
-    // const token = localStorage.getItem('token');
-    // const token = 'fnAEYqm3KmACQaJXMvNR-5GykOqml1g-mnS6FCdN' //online secret
-    // const token = 'fnAEYqiyOZACAHeAJMih8z46VBNKnhVxA5QLvLia' //offline secret
     const token = sessionStorage.token
     console.log(token)
     console.log(sessionStorage)

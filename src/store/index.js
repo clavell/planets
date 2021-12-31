@@ -19,7 +19,9 @@ export default createStore({
     getPlanets({commit},){
       try{
         const {result} = useQuery(allPlanetsQuery)
+        console.log(result)
         const planets = useResult(result, [], data => data.allPlanets.data)
+        console.log(planets)
         commit('SET_PLANETS', {planets}) 
       }catch(err){
         console.log(err)
